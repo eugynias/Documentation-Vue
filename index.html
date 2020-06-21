@@ -1,10 +1,14 @@
 <div id="app">
     <ul>
         <li v-for = "product in products">
-            {{ product.quantify }} {{ product.name }}
+            <input type="number" v-model.number="product.quantify">
+            {{ product.name }}
             <span v-if="product.quantify === 0">
                 -OUT OF STOCK
             </span>
+            <button @click="product.quantify += 1">
+                Add
+            </button>
         </li>
     </ul>
     <h2>Total Inventory: {{totalProducts}} </h2>
